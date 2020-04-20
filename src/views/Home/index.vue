@@ -332,6 +332,9 @@ export default {
     padding: 0 20px;
     height: 44px;
     box-sizing: border-box;
+    background-color: #fff;
+    position: relative;
+    border-bottom: 1px solid #dbd9dc;
     .user-btn {
       width: 25px;
       height: 25px;
