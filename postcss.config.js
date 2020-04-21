@@ -1,7 +1,8 @@
 module.exports = {
   plugins: {
     autoprefixer: {
-      browsers: ['Android >= 4.0', 'iOS >= 8'],
+      // 不需要设置这个选项， 它会自动去使用 .browserslistrc 这个文件的配置
+      // browsers: ['Android >= 4.0', 'iOS >= 8'],
     },
 
     'postcss-pxtorem': {
