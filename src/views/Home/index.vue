@@ -14,36 +14,49 @@
     </header>
     <!-- 首页头部 end -->
 
-    <!-- 轮播图 beign -->
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-      </div>
-      <!-- 如果需要分页器 -->
-      <div class="swiper-pagination"></div>
-    </div>
-    <!-- 轮播图 end -->
+    <Swiper class="my-swiper" @change="onChange">
+      <SwiperItem>
+        <img
+          src="https://img.manhuadao.cn/upload/AdGroup201906/9315f7dd68b346928219f29bd9c89e60.jpg"
+          alt
+        />
+      </SwiperItem>
+      <SwiperItem>
+        <img
+          src="https://img.manhuadao.cn/upload/AdGroup201903/22b43c03a0f943cda001c5338fe0ddd9.jpg"
+          alt
+        />
+      </SwiperItem>
+      <SwiperItem>
+        <img
+          src="https://img.manhuadao.cn/upload/AdGroup202003/dda50e4233e34186910fd490aea1cd91.jpg"
+          alt
+        />
+      </SwiperItem>
+    </Swiper>
   </div>
 </template>
 
 <script>
-// 引入 Swiper 核心与 Swiper 的样式
-import Swiper from 'swiper'
-import 'swiper/css/swiper.css'
+// 使用 ../ 相对路径时，如果当前组件位置发生变化，
+// 那么相对路径也需要去修改, 如果使用 @ 别名的方式。就不需要去修改这个路径了
+// import Swiper from '@/components/Swiper/Swiper.vue'
+// import SwiperItem from '@/components/Swiper/SwiperItem.vue'
+// =>
+import { Swiper, SwiperItem } from '@/components/Swiper'
 
 export default {
   name: 'Home',
 
-  mounted () {
-    /* eslint-disable */
-    new Swiper(".swiper-container", {
-      pagination: {
-        el: ".swiper-pagination"
-      }
-    });
-    /* eslint-enable */
+  components: {
+    Swiper,
+    SwiperItem
+  },
+
+  methods: {
+    onChange (index) {
+      console.log('hello', index)
+    }
   }
 }
 </script>
@@ -80,27 +93,9 @@ export default {
       background-size: 100%;
     }
   }
-}
-</style>
 
-<style lang="scss">
-.swiper-container {
-  width: 100%;
-  height: 180px;
-  .swiper-pagination-bullet {
-    opacity: 1;
-    vertical-align: middle;
-    width: 6px;
-    height: 6px;
-    margin: 0 5px;
-    border-radius: 50%;
-    background-color: hsla(0, 0%, 100%, 0.7);
-  }
-  .swiper-pagination-bullet-active {
-    width: 20px;
-    height: 10px;
-    background: url("../../assets/icon/dot.png") no-repeat;
-    background-size: 100%;
+  .my-swiper img {
+    width: 100%;
   }
 }
 </style>
