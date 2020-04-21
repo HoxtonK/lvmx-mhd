@@ -16,25 +16,22 @@
 
     <Swiper class="my-swiper" @change="onChange">
       <SwiperItem>
-        1
+        <img
+          src="https://img.manhuadao.cn/upload/AdGroup201906/9315f7dd68b346928219f29bd9c89e60.jpg"
+          alt
+        />
       </SwiperItem>
       <SwiperItem>
-        2
+        <img
+          src="https://img.manhuadao.cn/upload/AdGroup201903/22b43c03a0f943cda001c5338fe0ddd9.jpg"
+          alt
+        />
       </SwiperItem>
       <SwiperItem>
-        3
-      </SwiperItem>
-    </Swiper>
-
-    <Swiper class="my-swiper" @change="onChange">
-      <SwiperItem>
-        1
-      </SwiperItem>
-      <SwiperItem>
-        2
-      </SwiperItem>
-      <SwiperItem>
-        3
+        <img
+          src="https://img.manhuadao.cn/upload/AdGroup202003/dda50e4233e34186910fd490aea1cd91.jpg"
+          alt
+        />
       </SwiperItem>
     </Swiper>
   </div>
@@ -65,18 +62,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// 引入公用的mixins.scss
+// @import "../../assets/styles/mixins.scss";
+// 使用 @ 别名时，需要加一个 ~ 符号
+// !!!! @vue/cli 4.3.1 不需要加 ~
+@import "@/assets/styles/mixins.scss";
+
 .page-home {
   display: flex;
   flex-direction: column;
   height: 100%;
 
   .index-header {
+    @include border-bottom;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
     height: 44px;
     box-sizing: border-box;
+    // border-bottom: 1px solid #e9e9e9;
     .user-btn {
       width: 25px;
       height: 25px;
