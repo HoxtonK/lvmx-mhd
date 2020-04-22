@@ -32,6 +32,8 @@ export default {
 
   methods: {
     handleClick (type, index) {
+      if (this.activeIndex === index) return
+
       // 当前点击的高亮
       this.activeIndex = index
       // 通知父组件
