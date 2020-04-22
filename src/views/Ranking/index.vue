@@ -1,6 +1,6 @@
 <template>
   <div class="page-ranking">
-    <normal-header></normal-header>
+    <normal-header title="排行榜"></normal-header>
 
     <header-type></header-type>
 

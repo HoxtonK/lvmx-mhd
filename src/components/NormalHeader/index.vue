@@ -1,14 +1,32 @@
 <template>
   <header class="header-normal">
-    <div class="header-back"></div>
-    <span class="header-title font-32">分类</span>
-    <div class="header-search"></div>
+    <div class="header-back" @click="goBack"></div>
+    <span class="header-title font-32">{{ title }}</span>
+    <div class="header-search" @click="goSearch"></div>
   </header>
 </template>
 
 <script>
 export default {
-  name: 'NormalHeader'
+  name: 'NormalHeader',
+
+  props: {
+    title: {
+      type: String,
+      default: '漫画岛'
+    }
+  },
+
+  methods: {
+    goBack () {
+      // ?使用编程式导航?
+      this.$router.back()
+    },
+
+    goSearch () {
+      this.$router.push('/search')
+    }
+  }
 }
 </script>
 

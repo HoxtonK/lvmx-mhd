@@ -1,6 +1,6 @@
 <template>
   <div class="page-vip">
-    <normal-header></normal-header>
+    <normal-header title="VIP专区"></normal-header>
 
     <header-type></header-type>
 
