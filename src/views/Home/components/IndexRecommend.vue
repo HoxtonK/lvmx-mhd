@@ -221,5 +221,38 @@ export default {
       }
     }
   }
+  .recommend-type-5 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    .item {
+      width: 112px;
+      height: 218px;
+      margin-bottom: 16px;
+      .item-pic {
+        width: 112px;
+        height: 148px;
+        margin-bottom: 4px;
+      }
+      .item-title {
+        max-width: 100%;
+        margin-bottom: 2px;
+        color: #3a3a3a;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .item-text {
+        max-width: 100%;
+        color: #8d8d8d;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+  }
 }
 </style>
