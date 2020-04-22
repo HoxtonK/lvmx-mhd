@@ -70,6 +70,9 @@ export default {
 .swiper-container {
   width: 100%;
   height: 180px;
+  .swiper-pagination-bullets {
+    bottom: 0;
+  }
   .swiper-pagination-bullet {
     opacity: 1;
     vertical-align: middle;
