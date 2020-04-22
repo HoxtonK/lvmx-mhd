@@ -106,3 +106,26 @@ export const getRankList = (ranktype, pageno = 1, pagesize = 20) => {
     })
   })
 }
+
+/**
+ * 获取VIP专区数据
+ * @param {Number} special VIP专区特定 892
+ * @param {Number} pageno 当前页码
+ * @param {Number} pagesize 每页显示条数
+ */
+export const getVIPList = (special = 892, pageno = 1, pagesize = 20) => {
+  return request({
+    url: '/api/comic_v2/comicsfilterlist_v2',
+    method: 'POST',
+    params: {
+      apptype: 8,
+      appversion: '1.0',
+      channel: 'web-app'
+    },
+    data: format({
+      special,
+      pageno,
+      pagesize
+    })
+  })
+}

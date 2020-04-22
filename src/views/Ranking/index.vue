@@ -15,8 +15,8 @@ import NormalHeader from '@/components/NormalHeader'
 import HeaderType from '@/components/HeaderType'
 import CartoonList from '@/components/CartoonList'
 
-import { getRankList } from '../../api/cartoon'
-import { unformat } from '../../utils/apiHeader'
+import { getRankList } from '@/api/cartoon'
+import { unformat } from '@/utils/apiHeader'
 
 export default {
   name: 'Ranking',
