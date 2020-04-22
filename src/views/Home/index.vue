@@ -52,7 +52,7 @@ export default {
 
   methods: {
     onChange (index) {
-      console.log('hello', index)
+      // console.log('hello', index)
     },
 
     getBanner () {
