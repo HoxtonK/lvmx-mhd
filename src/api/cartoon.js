@@ -21,3 +21,19 @@ export const getBanner = () => {
     }
   })
 }
+
+/**
+ * 获取首页推荐数据
+ */
+export const getIndexRecommend = () => {
+  return request({
+    url: '/api/comic_v2/customerview',
+    method: 'GET',
+    params: {
+      apptype: 8,
+      appversion: '1.0',
+      channel: 'web-app',
+      viewtype: 1
+    }
+  })
+}
