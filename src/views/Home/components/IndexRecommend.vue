@@ -43,7 +43,9 @@
           <p class="item-hot font-24">
             人气：
             <!-- 123123123123 => 1.12亿 -->
-            <span class="hot-hot">{{ childItem.bigbookview | formatYi | filterB('zhangsan', 18) }}</span>
+            <!-- <span class="hot-hot">{{ childItem.bigbookview | formatYi | filterB('zhangsan', 18) }}</span> -->
+
+            <span class="hot-hot">{{ childItem.bigbookview | formatYi }}</span>
           </p>
           <p class="item-text font-24">{{childItem.brief}}</p>
         </div>
@@ -68,7 +70,7 @@ export default {
   filters: {
     formatYi (value) {
       // console.log('value: ', value)
-      return `${value}亿`
+      return `${(value / 100000000).toFixed(2)}亿`
     },
 
     filterB (value, name, age) {
