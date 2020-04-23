@@ -1,7 +1,7 @@
 <template>
   <div class="page-search">
     <header class="search-header">
-      <div class="header-back"></div>
+      <div class="header-back" @click="$router.back()"></div>
       <div class="header-search">
         <span class="icon-search"></span>
         <input

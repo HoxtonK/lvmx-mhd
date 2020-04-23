@@ -5,11 +5,7 @@
     <header-type :types="types" @click="onTypeChange"></header-type>
 
     <div class="ranking-main">
-<<<<<<< HEAD
-      <cartoon-list :list="cartoonList"></cartoon-list>
-=======
       <cartoon-list :list="cartoonList" isRanking></cartoon-list>
->>>>>>> day04
     </div>
   </div>
 </template>
@@ -49,10 +45,7 @@ export default {
 
   computed: {
     cartoonList () {
-<<<<<<< HEAD
-=======
       // [{bigbook_id, bigbook_name, }] => [{id, name}]
->>>>>>> day04
       return this.rankList.map(item => {
         return {
           id: item.bigbookid,

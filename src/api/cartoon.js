@@ -151,7 +151,7 @@ export const searchIndex = (name) => {
  */
 export const getSerachResult = (name) => {
   return request({
-    url: '/a/comic_v2/searchbookauthor?apptype=8&appversion=1.0&channel=web-app&type=2&pageno=1&pagesize=100',
+    url: '/api/comic_v2/searchbookauthor?apptype=8&appversion=1.0&channel=web-app&type=2&pageno=1&pagesize=100',
     method: 'GET',
     params: {
       name
