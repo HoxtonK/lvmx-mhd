@@ -5,7 +5,7 @@
     <header-type :types="types" @click="onTypeChange"></header-type>
 
     <div class="ranking-main">
-      <cartoon-list :list="cartoonList"></cartoon-list>
+      <cartoon-list :list="cartoonList" isRanking></cartoon-list>
     </div>
   </div>
 </template>
