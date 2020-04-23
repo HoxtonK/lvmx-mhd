@@ -1,5 +1,7 @@
 <template>
   <div class="page-classify">
+    <router-link to="/city">当前选择的城市是：{{ curCityName }}</router-link>
+
     <normal-header title="分类"></normal-header>
 
     <header-type :types="types" @click="onTypeChange"></header-type>
@@ -14,7 +16,7 @@
 import NormalHeader from '@/components/NormalHeader'
 import HeaderType from '@/components/HeaderType'
 import CartoonList from '@/components/CartoonList'
-
+import { mapGetters } from 'vuex'
 import { getTypes, getTypeList } from '@/api/cartoon'
 import { unformat } from '../../utils/apiHeader'
 
@@ -30,13 +32,16 @@ export default {
   data () {
     return {
       types: [],
-
+      // 分类数据
       classifyList: []
     }
   },
 
   computed: {
+    ...mapGetters('city', ['curCityName']),
+
     cartoonList () {
+      // [{bigbook_id, bigbook_name, }] => [{id, name}]
       return this.classifyList.map(item => {
         return {
           id: item.bigbook_id,
@@ -52,30 +57,16 @@ export default {
   methods: {
     a () {
       return getTypes().then(res => {
-        if (res.code === 200) {
-          this.types = res.info
-        } else {
-          alert(res.code_msg)
-        }
-      }).catch(err => {
-        console.log(err)
-        alert('网络异常，请稍后重试')
+        this.types = res.info
       })
     },
 
     b (subject) {
       getTypeList(subject).then(res => {
-        if (res.code === 200) {
-          // 对 res.info 做解密, 并解析成 JSON
-          const info = JSON.parse(unformat(res.info))
-          console.log(info)
-          this.classifyList = info.comicsList
-        } else {
-          alert(res.code_msg)
-        }
-      }).catch(err => {
-        console.log(err)
-        alert('网络异常，请稍后重试')
+        // 对 res.info 做解密, 并解析成 JSON
+        const info = JSON.parse(unformat(res.info))
+        console.log(info)
+        this.classifyList = info.comicsList
       })
     },
 

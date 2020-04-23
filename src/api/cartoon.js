@@ -108,24 +108,53 @@ export const getRankList = (ranktype, pageno = 1, pagesize = 20) => {
 }
 
 /**
- * 获取VIP专区数据
- * @param {Number} special VIP专区特定 892
- * @param {Number} pageno 当前页码
- * @param {Number} pagesize 每页显示条数
+ * 获取 VIP专区 数据
  */
-export const getVIPList = (special = 892, pageno = 1, pagesize = 20) => {
+export const getVIPList = () => {
   return request({
-    url: '/api/comic_v2/comicsfilterlist_v2',
+    url: '/api/comic_v2/comicsfilterlist_v2?apptype=8&appversion=1.0&channel=web-app',
     method: 'POST',
-    params: {
-      apptype: 8,
-      appversion: '1.0',
-      channel: 'web-app'
-    },
     data: format({
-      special,
-      pageno,
-      pagesize
+      pageno: 1,
+      pagesize: 20,
+      special: 892
     })
+  })
+}
+
+/**
+ * 热门搜索
+ */
+export const getHotSearch = () => {
+  return request({
+    url: '/api/comic/hotsearch?apptype=8&appversion=1.0&channel=web-app&appType=8',
+    method: 'GET'
+  })
+}
+
+/**
+ * 搜索关键字操作
+ * @param {String} name 关键字
+ */
+export const searchIndex = (name) => {
+  return request({
+    url: '/api/comic_v2/searchindex?apptype=8&appversion=1.0&channel=web-app&type=2',
+    method: 'GET',
+    params: {
+      name
+    }
+  })
+}
+
+/**
+ * 搜索结果页面的请求
+ */
+export const getSerachResult = (name) => {
+  return request({
+    url: '/a/comic_v2/searchbookauthor?apptype=8&appversion=1.0&channel=web-app&type=2&pageno=1&pagesize=100',
+    method: 'GET',
+    params: {
+      name
+    }
   })
 }

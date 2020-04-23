@@ -5,7 +5,11 @@
     <header-type :types="types" @click="onTypeChange"></header-type>
 
     <div class="ranking-main">
+<<<<<<< HEAD
       <cartoon-list :list="cartoonList"></cartoon-list>
+=======
+      <cartoon-list :list="cartoonList" isRanking></cartoon-list>
+>>>>>>> day04
     </div>
   </div>
 </template>
@@ -45,6 +49,10 @@ export default {
 
   computed: {
     cartoonList () {
+<<<<<<< HEAD
+=======
+      // [{bigbook_id, bigbook_name, }] => [{id, name}]
+>>>>>>> day04
       return this.rankList.map(item => {
         return {
           id: item.bigbookid,
@@ -60,16 +68,9 @@ export default {
   methods: {
     getRankList (ranktype) {
       getRankList(ranktype).then(res => {
-        if (res.code === 200) {
-          // res.info 解密 JSON.parse 解析
-          const info = JSON.parse(unformat(res.info))
-          this.rankList = info.ranklist
-        } else {
-          alert(res.code_msg)
-        }
-      }).catch(err => {
-        console.log(err)
-        alert('网络异常，请稍后重试')
+        // res.info 解密 JSON.parse 解析
+        const info = JSON.parse(unformat(res.info))
+        this.rankList = info.ranklist
       })
     },
 
