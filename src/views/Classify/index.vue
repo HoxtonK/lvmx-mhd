@@ -6,7 +6,7 @@
 
     <header-type :types="types" @click="onTypeChange"></header-type>
 
-    <div class="classify-main">
+    <div class="classify-main" v-backtotop>
       <cartoon-list :list="cartoonList"></cartoon-list>
     </div>
   </div>

@@ -2,7 +2,7 @@
   <div class="page-vip">
     <normal-header title="VIP专区"></normal-header>
 
-    <div class="vip-main">
+    <div class="vip-main" v-backtotop>
       <cartoon-list :list="cartoonList"></cartoon-list>
     </div>
   </div>

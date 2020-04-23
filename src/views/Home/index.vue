@@ -4,7 +4,7 @@
 
     <index-header></index-header>
 
-    <div class="index-main">
+    <div class="index-main" v-backtotop>
       <swiper class="my-swiper" @change="onChange" v-if="bannerList.length > 0">
         <swiper-item v-for="item in bannerList" :key="item.id">
           <img :src="item.imageurl" alt />
