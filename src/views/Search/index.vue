@@ -45,7 +45,12 @@
             </span>
           </div>
           <div class="history-content font-28">
-            <span class="history-item" v-for="item in historySearchList" :key="item" @click="handleClick(item)">
+            <span
+              class="history-item"
+              v-for="item in historySearchList"
+              :key="item"
+              @click="handleClick(item)"
+            >
               <span class="icon-time"></span>
               {{ item }}
             </span>
@@ -57,9 +62,12 @@
       <template v-else>
         <!-- 搜索结果面板 begin -->
         <section class="search-content">
-          <p class="item font-28" v-for="item in searchIndexList" :key="item" @click="handleClick(item)">
-            {{ item }}
-          </p>
+          <p
+            class="item font-28"
+            v-for="item in searchIndexList"
+            :key="item"
+            @click="handleClick(item)"
+          >{{ item }}</p>
         </section>
         <!-- 搜索结果面板 end -->
       </template>
@@ -113,18 +121,9 @@ export default {
 
   methods: {
     getHotSearch () {
-      getHotSearch()
-        .then(res => {
-          if (res.code === 200) {
-            this.hotWordsList = res.info.hotWordsList
-          } else {
-            alert(res.code_msg)
-          }
-        })
-        .catch(err => {
-          console.log(err)
-          alert('网络异常，请稍后重试')
-        })
+      getHotSearch().then(res => {
+        this.hotWordsList = res.info.hotWordsList
+      })
     },
 
     /**
@@ -182,18 +181,9 @@ export default {
      * 输入框输入内容时处理
      */
     searchIndex (name) {
-      searchIndex(name)
-        .then(res => {
-          if (res.code === 200) {
-            this.searchIndexList = res.info
-          } else {
-            alert(res.code_msg)
-          }
-        })
-        .catch(err => {
-          console.log(err)
-          alert('网络异常，请稍后重试')
-        })
+      searchIndex(name).then(res => {
+        this.searchIndexList = res.info
+      })
     }
   },
 

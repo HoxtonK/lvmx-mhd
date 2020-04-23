@@ -46,18 +46,9 @@ export default {
 
   methods: {
     getSerachResult (name) {
-      getSerachResult(name)
-        .then(res => {
-          if (res.code === 200) {
-            this.list = res.info
-          } else {
-            alert(res.code_msg)
-          }
-        })
-        .catch(err => {
-          console.log(err)
-          alert('网络异常，请稍后重试')
-        })
+      getSerachResult(name).then(res => {
+        this.list = res.info
+      })
     }
   },
 
