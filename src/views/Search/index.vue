@@ -37,7 +37,7 @@
         <!-- 热门搜索 end -->
 
         <!-- 最近搜索 begin -->
-        <section class="search-history">
+        <section class="search-history" v-if="historySearchList.length > 0">
           <div class="title font-26">
             <span class="title-title">最近搜索</span>
             <span class="title-btn">
@@ -169,7 +169,13 @@ export default {
       // 1. 保存
       this.saveSearch(keyword)
       // 2. 跳转到搜索结果页面
-      this.$router.push('/search-result')
+      // this.$router.push(`/search-result?keyword=${keyword}`)
+      this.$router.push({
+        path: '/search-result',
+        query: {
+          keyword
+        }
+      })
     },
 
     /**
