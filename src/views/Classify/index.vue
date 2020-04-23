@@ -1,5 +1,7 @@
 <template>
   <div class="page-classify">
+    <p>当前选择的城市是：xxxx</p>
+
     <normal-header title="分类"></normal-header>
 
     <header-type :types="types" @click="onTypeChange"></header-type>

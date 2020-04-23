@@ -1,5 +1,7 @@
 <template>
   <div class="page-home">
+    <p>当前选择的城市是：{{ curCityName }}</p>
+
     <index-header></index-header>
 
     <div class="index-main">
@@ -27,6 +29,7 @@ import IndexNav from './components/IndexNav'
 import IndexRecommend from './components/IndexRecommend'
 import IndexHeader from './components/IndexHeader'
 import { getBanner, getIndexRecommend } from '@/api/cartoon'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Home',
@@ -48,6 +51,10 @@ export default {
 
       recommendList: []
     }
+  },
+
+  computed: {
+    ...mapGetters('city', ['curCityName'])
   },
 
   methods: {
