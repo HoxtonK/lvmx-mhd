@@ -107,6 +107,9 @@ export const getRankList = (ranktype, pageno = 1, pagesize = 20) => {
   })
 }
 
+/**
+ * 获取 VIP专区 数据
+ */
 export const getVIPList = () => {
   return request({
     url: '/api/comic_v2/comicsfilterlist_v2?apptype=8&appversion=1.0&channel=web-app',
@@ -116,5 +119,29 @@ export const getVIPList = () => {
       pagesize: 20,
       special: 892
     })
+  })
+}
+
+/**
+ * 热门搜索
+ */
+export const getHotSearch = () => {
+  return request({
+    url: '/api/comic/hotsearch?apptype=8&appversion=1.0&channel=web-app&appType=8',
+    method: 'GET'
+  })
+}
+
+/**
+ * 搜索关键字操作
+ * @param {String} name 关键字
+ */
+export const searchIndex = (name) => {
+  return request({
+    url: '/api/comic_v2/searchindex?apptype=8&appversion=1.0&channel=web-app&type=2',
+    method: 'GET',
+    params: {
+      name
+    }
   })
 }
