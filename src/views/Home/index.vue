@@ -1,6 +1,6 @@
 <template>
   <div class="page-home">
-    <p>当前选择的城市是：{{ curCityName }}</p>
+    <router-link to="/city">当前选择的城市是：{{ curCityName }}</router-link>
 
     <index-header></index-header>
 
