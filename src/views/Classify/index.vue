@@ -5,7 +5,7 @@
     <header-type :types="types" @click="onTypeChange"></header-type>
 
     <div class="classify-main">
-      <cartoon-list :list="list"></cartoon-list>
+      <cartoon-list :list="cartoonList"></cartoon-list>
     </div>
   </div>
 </template>
@@ -30,8 +30,23 @@ export default {
   data () {
     return {
       types: [],
+      // 分类数据
+      classifyList: []
+    }
+  },
 
-      list: []
+  computed: {
+    cartoonList () {
+      // [{bigbook_id, bigbook_name, }] => [{id, name}]
+      return this.classifyList.map(item => {
+        return {
+          id: item.bigbook_id,
+          coverurl: item.coverurl,
+          name: item.bigbook_name,
+          author: item.bigbook_author,
+          view: item.bigbookview
+        }
+      })
     }
   },
 
@@ -55,7 +70,7 @@ export default {
           // 对 res.info 做解密, 并解析成 JSON
           const info = JSON.parse(unformat(res.info))
           console.log(info)
-          this.list = info.comicsList
+          this.classifyList = info.comicsList
         } else {
           alert(res.code_msg)
         }

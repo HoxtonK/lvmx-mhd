@@ -1,14 +1,14 @@
 <template>
   <section class="cartoon-list">
-    <div class="list-item" v-for="item in list" :key="item.bigbook_id">
+    <div class="list-item" v-for="item in list" :key="item.id">
       <div
         class="item-pic"
         :style="`background-image: url('${item.coverurl}')`"
       ></div>
       <div class="item-info">
-        <div class="info-book font-30">{{ item.bigbook_name }}</div>
-        <div class="info-author font-26">作者：{{ item.bigbook_author }}</div>
-        <div class="info-fans font-26">人气：{{ item.bigbookview }}</div>
+        <div class="info-book font-30">{{ item.name }}</div>
+        <div class="info-author font-26">作者：{{ item.author }}</div>
+        <div class="info-fans font-26">人气：{{ item.view }}</div>
       </div>
     </div>
   </section>
@@ -19,6 +19,19 @@ export default {
   name: 'CartoonList',
 
   props: {
+    /**
+     漫画列表数据，数据格式如下：
+     [
+       {
+         id,
+         coverurl,
+         name,
+         author,
+         view
+       },
+       ...
+     ]
+     */
     list: {
       type: Array,
       default () {
