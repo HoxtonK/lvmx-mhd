@@ -19,7 +19,7 @@ import store from '../store'
 
 // 异步引入路由页面组件 (路由懒加载)
 const Home = () => import('../views/Home')
-// const Classify = () => import('../views/Classify')
+const Classify = () => import('../views/Classify')
 const Hello = () => import('../views/Hello')
 const Favorite = () => import('../views/Hello/Favorite')
 const History = () => import('../views/Hello/History')
@@ -36,9 +36,27 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({
   routes: [
-    { path: '/home', component: Home },
-    { path: '/classify', component: () => import(/* webpackChunkName: "classify" */ '../views/Classify') },
-    { path: '/city', component: City },
+    {
+      path: '/home',
+      component: Home,
+      meta: { enterActiveClass: '', leaveActiveClass: 'animated dealy-1s' }
+    },
+    {
+      path: '/classify',
+      component: Classify,
+      meta: {
+        enterActiveClass: 'animated slideInRight',
+        leaveActiveClass: 'animated slideOutRight'
+      }
+    },
+    {
+      path: '/city',
+      component: City,
+      meta: {
+        enterActiveClass: 'animated slideInRight',
+        leaveActiveClass: 'animated slideOutRight'
+      }
+    },
     {
       path: '/hello',
       component: Hello,
@@ -55,15 +73,68 @@ const router = new VueRouter({
           path: '',
           redirect: '/hello/favorite'
         }
-      ]
+      ],
+      meta: {
+        enterActiveClass: 'animated slideInRight',
+        leaveActiveClass: 'animated slideOutRight'
+      }
     },
-    { path: '/login', component: Login },
-    { path: '/my', component: My },
-    { path: '/ranking', component: Ranking },
-    { path: '/register', component: Register },
-    { path: '/search', component: Search },
-    { path: '/search-result', component: SearchResult },
-    { path: '/vip', component: Vip },
+    {
+      path: '/login',
+      component: Login,
+      meta: {
+        enterActiveClass: 'animated slideInRight',
+        leaveActiveClass: 'animated slideOutRight'
+      }
+    },
+    {
+      path: '/my',
+      component: My,
+      meta: {
+        enterActiveClass: 'animated slideInRight',
+        leaveActiveClass: 'animated slideOutRight'
+      }
+    },
+    {
+      path: '/ranking',
+      component: Ranking,
+      meta: {
+        enterActiveClass: 'animated slideInDown',
+        leaveActiveClass: 'animated slideOutUp'
+      }
+    },
+    {
+      path: '/register',
+      component: Register,
+      meta: {
+        enterActiveClass: 'animated slideInRight',
+        leaveActiveClass: 'animated slideOutRight'
+      }
+    },
+    {
+      path: '/search',
+      component: Search,
+      meta: {
+        enterActiveClass: 'animated slideInRight',
+        leaveActiveClass: 'animated slideOutRight'
+      }
+    },
+    {
+      path: '/search-result',
+      component: SearchResult,
+      meta: {
+        enterActiveClass: 'animated slideInRight',
+        leaveActiveClass: 'animated slideOutRight'
+      }
+    },
+    {
+      path: '/vip',
+      component: Vip,
+      meta: {
+        enterActiveClass: 'animated slideInRight',
+        leaveActiveClass: 'animated slideOutRight'
+      }
+    },
     { path: '/', redirect: '/home' }
   ]
 })

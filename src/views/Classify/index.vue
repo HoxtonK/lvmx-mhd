@@ -92,12 +92,6 @@ export default {
 
 <style lang="scss" scoped>
 .page-classify {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #ffffff;
-  z-index: 99999;
   display: flex;
   flex-direction: column;
   height: 100%;

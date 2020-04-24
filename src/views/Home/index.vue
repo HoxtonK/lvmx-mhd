@@ -101,6 +101,7 @@ export default {
 @import "@/assets/styles/mixins.scss";
 
 .page-home {
+  z-index: 9998 !important;
   display: flex;
   flex-direction: column;
   height: 100%;

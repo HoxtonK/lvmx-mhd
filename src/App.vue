@@ -22,12 +22,10 @@
         这时考虑使用 多元素/多组件的过渡动画
 
       需求尝试二：
-        1. 设置过渡模式为 in-out
     -->
     <transition
-      mode="in-out"
-      enter-active-class="animated slideInRight"
-      leave-active-class="animated slideOutRight"
+      :enter-active-class="enterActiveClass"
+      :leave-active-class="leaveActiveClass"
     >
       <router-view />
     </transition>
@@ -40,19 +38,16 @@ export default {
 
   data () {
     return {
-      mode: 'in-out'
+      enterActiveClass: '',
+      leaveActiveClass: ''
+    }
+  },
+  watch: {
+    $route (to, from) {
+      console.log(to.meta.enterActiveClass)
+      this.leaveActiveClass = from.meta.leaveActiveClass
+      this.enterActiveClass = to.meta.enterActiveClass
     }
   }
-  // watch: {
-  //   $route (to, from) {
-  //     console.log(to)
-  //     if (to.path === '/home') {
-  //       console.log(to)
-  //       this.mode = ''
-  //     } else {
-  //       this.mode = 'in-out'
-  //     }
-  //   }
-  // }
 }
 </script>
