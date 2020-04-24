@@ -23,20 +23,23 @@
 
     <div class="city-main">
       <div class="left" ref="scrollLeft">
-        <div
-          class="city-index-section"
-          :ref="`section-${item.py}`"
-          v-for="item in cityList"
-          :key="item.py"
-        >
-          <p>{{ item.py }}</p>
-          <ul>
-            <li
-              v-for="city in item.list"
-              :key="city.cityId"
-              @click="handleClick(city)"
-            >{{ city.name }}</li>
-          </ul>
+        <!-- .left 元素是 better-scroll 的容器，这个容器的第一个子元素才是内容 -->
+        <div>
+          <div
+            class="city-index-section"
+            :ref="`section-${item.py}`"
+            v-for="item in cityList"
+            :key="item.py"
+          >
+            <p>{{ item.py }}</p>
+            <ul>
+              <li
+                v-for="city in item.list"
+                :key="city.cityId"
+                @click="handleClick(city)"
+              >{{ city.name }}</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="right">
@@ -49,6 +52,7 @@
 </template>
 
 <script>
+import BScroll from 'better-scroll'
 import NormalHeader from '../../components/NormalHeader'
 import { mapMutations, mapGetters, mapActions } from 'vuex'
 
@@ -70,11 +74,16 @@ export default {
     handleIndex (py) {
       // ref 标记时，如果是标记在 v-for 上。那么得到的是一个数组
       // 根据 py 获取左侧对应的元素的 DOM 对象
+      // const targetEl = this.$refs[`section-${py}`][0]
+      // // 计算这个元素距离 左侧顶部的距离
+      // const offsetTop = targetEl.offsetTop
+      // // 修改左侧滚动元素的 scrollTop 属性的值
+      // this.$refs.scrollLeft.scrollTop = offsetTop
+
       const targetEl = this.$refs[`section-${py}`][0]
-      // 计算这个元素距离 左侧顶部的距离
       const offsetTop = targetEl.offsetTop
-      // 修改左侧滚动元素的 scrollTop 属性的值
-      this.$refs.scrollLeft.scrollTop = offsetTop
+      // 调用 BScroll 实例的 scrollTo 方法
+      this.bscroll.scrollTo(0, -offsetTop)
     },
 
     handleClick (city) {
@@ -88,6 +97,14 @@ export default {
 
   created () {
     this.GET_CITIES()
+  },
+
+  mounted () {
+    /* eslint-disable */
+    this.bscroll = new BScroll(this.$refs.scrollLeft, {
+      click: true
+    })
+    /* eslint-enable */
   }
 }
 </script>
@@ -109,7 +126,6 @@ export default {
   .left {
     flex: 1;
     height: 100%;
-    overflow-y: auto;
     position: relative;
     .city-index-section {
       @include border-bottom;
