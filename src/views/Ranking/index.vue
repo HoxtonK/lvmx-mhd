@@ -1,13 +1,19 @@
 <template>
-  <div class="page-ranking">
-    <normal-header title="排行榜"></normal-header>
+  <transition
+    appear
+    enter-active-class="animated slideInDown"
+    leave-active-class="animated slideOutUp"
+  >
+    <div class="page-ranking">
+      <normal-header title="排行榜"></normal-header>
 
-    <header-type :types="types" @click="onTypeChange"></header-type>
+      <header-type :types="types" @click="onTypeChange"></header-type>
 
-    <div class="ranking-main">
-      <cartoon-list :list="cartoonList" isRanking></cartoon-list>
+      <div class="ranking-main">
+        <cartoon-list :list="cartoonList" isRanking></cartoon-list>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -88,6 +94,12 @@ export default {
 
 <style lang="scss" scoped>
 .page-ranking {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99999;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   height: 100%;

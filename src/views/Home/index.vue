@@ -5,7 +5,7 @@
      -->
     <!-- <img src="../../assets/logo.png" alt=""> -->
 
-    <img :src="img" alt="">
+    <!-- <img :src="img" alt=""> -->
 
     <router-link to="/city">当前选择的城市是：{{ curCityName }}</router-link>
 
