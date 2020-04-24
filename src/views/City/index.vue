@@ -34,7 +34,7 @@
             <li
               v-for="city in item.list"
               :key="city.cityId"
-              @click="SET_CURCITY(city)"
+              @click="handleClick(city)"
             >{{ city.name }}</li>
           </ul>
         </div>
@@ -129,6 +129,14 @@ export default {
       const offsetTop = targetEl.offsetTop
       // 修改左侧滚动元素的 scrollTop 属性的值
       this.$refs.scrollLeft.scrollTop = offsetTop
+    },
+
+    handleClick (city) {
+      // 1. 改变仓库
+      this.SET_CURCITY(city)
+      // 2. 回到之前要去的页面
+      const redirect = this.$route.query.redirect || '/'
+      this.$router.replace(redirect)
     }
   },
 

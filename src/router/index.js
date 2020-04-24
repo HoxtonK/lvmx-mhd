@@ -58,7 +58,12 @@ router.beforeEach((to, from, next) => {
   // console.log(store)
   if (!store.state.city.curCity && to.path !== '/city') {
     // 先去城市列表页面
-    next('/city')
+    next({
+      path: '/city',
+      query: {
+        redirect: to.fullPath
+      }
+    })
   } else {
     next()
   }
