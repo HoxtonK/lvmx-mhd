@@ -89,6 +89,7 @@ export default {
   created () {
     this.getBanner()
     this.getIndexRecommend()
+    console.log(this.$lvmx)
   }
 }
 </script>

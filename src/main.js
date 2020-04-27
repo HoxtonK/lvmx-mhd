@@ -5,9 +5,8 @@ import store from './store'
 
 // 引入 vue-lazyload
 import VueLazyload from 'vue-lazyload'
-// 引入 gotop 指令
-import gotop from './directives/gotop/index.js'
-
+// 引入 lvmx 插件
+import lvmx from './plugins/lvmx'
 import './assets/styles/base.scss'
 
 Vue.config.productionTip = false
@@ -23,7 +22,9 @@ Vue.use(VueLazyload, {
   // 2. 如果地址是public文件夹中的，可以将 public 看成 / 去组织url地址
 })
 
-Vue.directive('gotop', gotop)
+Vue.use(lvmx, {
+  hello: 'msg'
+})
 
 // 全局定义一个过滤器。formatYi
 // Vue.filter('formatYi', (value) => {
