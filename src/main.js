@@ -5,6 +5,8 @@ import store from './store'
 
 // 引入 vue-lazyload
 import VueLazyload from 'vue-lazyload'
+// 引入 gotop 指令
+import gotop from './directives/gotop/index.js'
 
 import './assets/styles/base.scss'
 
@@ -20,6 +22,8 @@ Vue.use(VueLazyload, {
   // 1. 如果地址是src文件夹中的图片，需要使用 require 去引入
   // 2. 如果地址是public文件夹中的，可以将 public 看成 / 去组织url地址
 })
+
+Vue.directive('gotop', gotop)
 
 // 全局定义一个过滤器。formatYi
 // Vue.filter('formatYi', (value) => {
