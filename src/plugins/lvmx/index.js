@@ -17,6 +17,13 @@ const install = (Vue, options) => {
   Vue.prototype.$lvmx = '洗脚真爽'
   // ？Vue-Router 插件能让每个组件的 data 选项中多出一个 $route 数据。如何做的
   //  mixins（混入）
+  Vue.mixin({
+    data () {
+      return {
+        $route: '123123'
+      }
+    }
+  })
 }
 
 export default {
