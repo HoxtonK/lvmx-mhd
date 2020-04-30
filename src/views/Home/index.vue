@@ -1,10 +1,17 @@
 <template>
   <div class="page-home">
+    <!-- template 中直接引入 src 中的某个图片文件，是没有问题的
+      原因是 脚手架的配置中对这种操作做了处理，会交给 webpack 去打包
+     -->
+    <!-- <img src="../../assets/logo.png" alt=""> -->
+
+    <!-- <img :src="img" alt=""> -->
+
     <router-link to="/city">当前选择的城市是：{{ curCityName }}</router-link>
 
     <index-header></index-header>
 
-    <div class="index-main" v-backtotop>
+    <div class="index-main" v-gotop>
       <swiper class="my-swiper" @change="onChange" v-if="bannerList.length > 0">
         <swiper-item v-for="item in bannerList" :key="item.id">
           <img :src="item.imageurl" alt />
@@ -49,7 +56,9 @@ export default {
       // 2. 数据格式，string? object? number? array? ...
       bannerList: [],
 
-      recommendList: []
+      recommendList: [],
+
+      img: require('../../assets/logo.png')
     }
   },
 
@@ -80,6 +89,7 @@ export default {
   created () {
     this.getBanner()
     this.getIndexRecommend()
+    console.log(this.$lvmx)
   }
 }
 </script>
@@ -92,6 +102,7 @@ export default {
 @import "@/assets/styles/mixins.scss";
 
 .page-home {
+  z-index: 9998 !important;
   display: flex;
   flex-direction: column;
   height: 100%;

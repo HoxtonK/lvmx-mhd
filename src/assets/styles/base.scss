@@ -136,7 +136,8 @@ html,
 body,
 #app {
 	// 这里的px单位不希望被转化成rem
-	// 只需要将 px => PX
+  // 只需要将 px => PX
+  position: relative;
   max-width: 540PX;
 	height: 100%;
 	margin: auto;
@@ -169,4 +170,19 @@ a:visited {
 }
 .font-36 {
   font-size: 18px;
+}
+
+#app > div {
+  position: absolute;
+  width: 100%;
+  max-width: 540PX;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: #ffffff;
+}
+
+.animated {
+  animation-duration: 5000;
 }

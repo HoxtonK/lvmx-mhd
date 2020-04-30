@@ -6,7 +6,9 @@ import { Notify } from 'vant'
 // 创建一个 axios 的实例对象
 const instance = axios.create({
   // 基准路径
-  baseURL: 'http://localhost:8080',
+  // 直接将 baseURL 修改为 线上ip地址能够处理问题，但是不够优雅，因为后续会频繁去修改它。
+  // 推荐是用环境变量来做控制
+  baseURL: process.env.NODE_ENV === 'production' ? 'http://106.52.202.91' : 'http://localhost:8080',
   // 超时时间的设置 ms
   timeout: 5000
 })

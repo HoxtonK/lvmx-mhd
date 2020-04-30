@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 
 import VueLazyload from 'vue-lazyload'
-import VueBacktotop from './directives/backtotop'
+import VueLvmx from './plugins/lvmx'
 
 import './assets/styles/base.scss'
 
@@ -16,14 +16,7 @@ Vue.use(VueLazyload, {
   loading: require('./assets/logo.png'),
   attempt: 1
 })
-
-Vue.use(VueBacktotop)
-
-// 全局定义一个过滤器。formatYi
-// Vue.filter('formatYi', (value) => {
-//   console.log('value: ', value)
-//   return `${value}亿`
-// })
+Vue.use(VueLvmx)
 
 new Vue({
   router,

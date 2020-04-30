@@ -9,9 +9,10 @@
       <span class="title-more font-24">更多 &gt;</span>
     </div>
 
-    <!-- 一个二个 -->
+    <!-- 一行二个 -->
     <div v-if="info.comicsviewtype === 1" class="recommend-type-1">
       <div class="item" v-for="childItem in info.comicslist" :key="childItem.bigbook_id">
+        <!-- <img class="item-pic" :src="JSON.parse(childItem.extension).xsyzfx" /> -->
         <img class="item-pic" v-lazy="JSON.parse(childItem.extension).xsyzfx" />
         <p class="item-name font-28">{{ childItem.bigbook_name }}</p>
         <p class="item-text font-24">{{ JSON.parse(childItem.extension).recommendwords }}</p>
